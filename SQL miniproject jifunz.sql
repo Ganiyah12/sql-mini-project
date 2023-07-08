@@ -1,8 +1,11 @@
 -- QUESTION 1:Provide the top 10 customers (full name) by revenue, the country they shipped to, the cities and 
 -- their revenue (orderqty * unitprice).
--- This insight will help you understand where your top spending customers are coming from. You can 
--- market better, get more capable customer service rep, have more stock and build partnerships in these
--- countries and cities.
+By identifying the top revenue-generating customers, the marketing team can gain insights into the most valuable customers in terms of their purchasing power. 
+This information allows them to prioritize their efforts and allocate resources towards retaining and nurturing these high-revenue customers. 
+The team can design personalized loyalty programs, tailored offers, exclusive rewards, or targeted marketing campaigns to strengthen customer loyalty, 
+enhance the customer experience, and potentially increase customer lifetime value. Additionally, 
+understanding the shipping country and city of these top customers can provide valuable geographic insights,
+enabling the marketing team to focus on specific regions or tailor marketing efforts to reach similar customer segments in other areas.
 
 
 SELECT TOP 10
@@ -16,7 +19,7 @@ JOIN SalesLT.CustomerAddress ca ON c.CustomerID = ca.CustomerID
 JOIN SalesLT.[Address] a ON ca.AddressID = a.AddressID
 JOIN SalesLT.SalesOrderDetail sod ON soh.SalesOrderID = sod.SalesOrderID
 GROUP BY c.FirstName, c.MiddleName, c.LastName, a.CountryRegion, a.City
-ORDER BY Revenue DESC;
+ORDER BYÂ RevenueÂ DESC;
 
 
 
@@ -35,7 +38,7 @@ FROM SalesLT.Customer c
 JOIN SalesLT.SalesOrderHeader soh ON soh.CustomerID = c.CustomerID
 JOIN SalesLT.SalesOrderDetail sod ON sod.SalesOrderID = soh.SalesOrderID
 GROUP BY c.CustomerID, c.CompanyName
-ORDER BY 'Total Revenue' DESC;
+ORDER BY 'Total Revenue'Â DESC;
 
 
 
